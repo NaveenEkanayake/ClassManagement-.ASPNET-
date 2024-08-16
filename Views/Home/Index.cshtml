@@ -1,0 +1,36 @@
+﻿@model Studentportal.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh; background-image: url('/Images/login.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="card p-5" style="max-width: 400px; width: 100%;">
+        <h3 class="text-center mb-4">Login</h3>
+        <form asp-action="Index" method="post">
+            @Html.AntiForgeryToken()
+
+            @if (ViewData.ModelState.Values.Any(v => v.Errors.Count > 0))
+            {
+                <div class="alert alert-danger" role="alert">
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                </div>
+            }
+
+            <div class="form-group mb-3">
+                <label for="email">Email</label>
+                <input asp-for="Email" class="form-control p-2" id="email" placeholder="Enter your email" required />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="password">Password</label>
+                <input asp-for="Password" type="password" class="form-control p-2" id="password" placeholder="Enter your password" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-5">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

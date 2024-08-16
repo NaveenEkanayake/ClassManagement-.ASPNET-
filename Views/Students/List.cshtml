@@ -1,0 +1,51 @@
+﻿@model List<Studentportal.Models.Entities.Student>
+
+<h1>All Students</h1>
+
+<div class="mb-3 text-end">
+    <a asp-controller="Students" asp-action="Add" class="btn btn-success">
+        Add Student
+    </a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="padding: 10px;">ID</th>
+            <th style="padding: 10px;">Name</th>
+            <th style="padding: 10px;">Email</th>
+            <th style="padding: 10px;">School</th>
+            <th style="padding: 10px;">Phone</th>
+            <th style="padding: 10px;">Province</th>
+            <th style="padding: 10px;">Preferred Timeslot</th>
+            <th style="padding: 10px;">Actions</th> <!-- Column header for actions -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td style="padding: 10px;">@student.ID</td>
+                <td style="padding: 10px;">@student.Name</td>
+                <td style="padding: 10px;">@student.Email</td>
+                <td style="padding: 10px;">@student.School</td>
+                <td style="padding: 10px;">@student.Phone</td>
+                <td style="padding: 10px;">@student.Province</td>
+                <td style="padding: 10px;">@student.PreferredTimeslot</td>
+                <td class="p-2">
+                    <div class="d-flex">
+                        <a asp-controller="Students" asp-action="Edit" asp-route-id="@student.ID" class="btn btn-primary me-2">
+                            Edit
+                        </a>
+                        <form asp-controller="Students" asp-action="Delete" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@student.ID" />
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
