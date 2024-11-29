@@ -1,6 +1,6 @@
 # Class Management System
 
-The **Class Management System** is a web application built using **HTML** for the frontend and **ASP.NET** for the backend. It follows the **MVC architecture**, which ensures a clean separation between the data, business logic, and presentation layers. This structure helps in maintaining and scaling the application easily while providing a smooth user experience for managing class details, students, and instructors.
+The **Class Management System** is a web application built using **HTML,CSS,Javascript** for the frontend and **ASP.NET** for the backend. It follows the **MVC architecture**, which ensures a clean separation between the data, business logic, and presentation layers. This structure helps in maintaining and scaling the application easily while providing a smooth user experience for managing class details, students, and instructors.
 
 ### Installation Process
 
